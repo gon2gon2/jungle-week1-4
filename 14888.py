@@ -4,7 +4,7 @@ import math
 
 mx = 0
 mn = math.inf
-input = sys.stdin.readline
+# input = sys.stdin.readline
 
 
 N = int(input())
