@@ -8,7 +8,6 @@ def counting_star(n, star_now):
 
     nn = 1+4*n # 2의 경우에는 5
     out.append("*"*nn)
-    # out.append("*" +" "*nn +" "+ " "*nn +"*")
     out.append("*" + " "*(nn-2) +"*")
 
     for s in star_now:
