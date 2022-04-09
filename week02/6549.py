@@ -1,37 +1,41 @@
-# # N = 7
-# # block = [2, 1, 4, 5, 1, 3, 3]
-# import sys  
-# sys.setrecursionlimit(10**8)
-# input = sys.stdin.readline
+# N = 7
+# block = [2, 1, 4, 5, 1, 3, 3]
+import sys  
+sys.setrecursionlimit(10**8)
+input = sys.stdin.readline
 
-# def go_left(i,h):
-#     if i == -1 or block[i]<h:
-#         return 0
+def go_left(i,h):
+    if i == -1 or block[i]<h:
+        return 0
 
-#     return go_left(i-1,h) + h
+    return go_left(i-1,h) + h
 
-# def go_right(i,h):
-#     if i == N or block[i]<h:
-#         return 0
-#     return go_right(i+1,h) + h
+def go_right(i,h):
+    if i == N or block[i]<h:
+        return 0
+    return go_right(i+1,h) + h
 
-# def check(i):
-#     h = block[i]
-#     return go_left(i,h) + go_right(i,h) - h
+def check(i):
+    h = block[i]
+    return go_left(i,h) + go_right(i,h) - h
 
-# # 만약 정답 아니면 h도 전체 탐색 돌려줘야 될듯 -> python 시간초과 -> pypy 메모리초과
-# while True:
-#     input_numbers = list(map(int,input().split()))
-#     N = input_numbers[0]
-#     if N == 0:
-#         break
+# 만약 정답 아니면 h도 전체 탐색 돌려줘야 될듯 -> python 시간초과 -> pypy 메모리초과
+while True:
+    input_numbers = list(map(int,input().split()))
+    N = input_numbers[0]
+    if N == 0:
+        break
 
-#     block = input_numbers[1:]
-#     ans = 0
-#     for i in range(N):
-#         value = check(i)
-#         ans = max(value, ans)
-#     print(ans)
+    block = input_numbers[1:]
+    ans = 0
+    for i in range(N):
+        value = check(i)
+        ans = max(value, ans)
+    print(ans)
+
+
+
+    
 import sys
 def divdeandconquer(a):
     if len(a) == 1:
